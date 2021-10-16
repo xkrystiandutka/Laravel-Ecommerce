@@ -24,7 +24,7 @@ class CreateAdminsTable extends Migration
             $table->text('profile_photo_path')->nullable();
             $table->timestamps();
         });
-    } 
+    }
 
     /**
      * Reverse the migrations.
