@@ -41,7 +41,6 @@
     @yield('admin')
 
 
-
   </div>
   <!-- /.content-wrapper -->
 
