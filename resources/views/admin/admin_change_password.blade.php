@@ -1,7 +1,7 @@
 @extends('admin.admin_master')
 @section('admin')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
+
 <div class="container-full">
         <!-- Main content -->
         <section class="content">
@@ -52,15 +52,5 @@
         </section>
         <!-- /.content -->
 </div>
-<script>
-    @if (Session::has('message'))
-        var type = "{{ Session::get('alert-type','info') }}"
-        switch(type){
-            case 'error':
-                toastr.error("{{ Session::get('message') }}");
-            break;
-            }
-    @endif
-</script>
 
 @endsection
