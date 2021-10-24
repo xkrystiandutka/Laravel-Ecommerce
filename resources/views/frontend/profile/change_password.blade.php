@@ -1,6 +1,8 @@
 @extends('frontend.main_master')
 @section('content')
-
+@php
+    $user = DB::table('users')->where('id', Auth::user()->id)->first();
+@endphp
 <div class="body-content">
     <div class="container">
         <div class="row">
@@ -21,27 +23,23 @@
             <div class="col-md-6">
 
                 <div class="card">
-                    <h3 class="text-center"><span class="text-danger">Hi... </span><strong>{{ Auth::user()->name }}</strong> Update your profile </h3>
+                    <h3 class="text-center"><span class="text-danger">Hi... </span><strong>{{ Auth::user()->name }}</strong> Change your password </h3>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('user.profile.store') }}" enctype="multipart/form-data">
+                    <form method="POST" action="{{ route('user.password.update') }}">
                         @csrf
 
                         <div class="form-group">
-                            <label class="info-title" for="exampleInputEmail1">Name <span></span></label>
-                            <input type="text" name="name" class="form-control" value="{{ $user->name }}">
+                            <label class="info-title" for="exampleInputEmail1">Current Password <span></span></label>
+                            <input type="password" name="oldpassword" id="current_password" class="form-control" required="">
                         </div>
                         <div class="form-group">
-                            <label class="info-title" for="exampleInputEmail1">Email <span></span></label>
-                            <input type="email" name="email" class="form-control" value="{{ $user->email }}">
+                            <label class="info-title" for="exampleInputEmail1">New Password <span></span></label>
+                            <input type="password" name="password" id="password" class="form-control" required="">
                         </div>
                         <div class="form-group">
-                            <label class="info-title" for="exampleInputEmail1">Phone<span></span></label>
-                            <input type="text" name="phone" class="form-control" value="{{ $user->phone }}">
-                        </div>
-                        <div class="form-group">
-                            <label class="info-title" for="exampleInputEmail1">User Image<span></span></label>
-                            <input type="file" name="profile_photo_path" class="form-control">
+                            <label class="info-title" for="exampleInputEmail1">Confirm Password <span></span></label>
+                            <input type="password" name="password_confirmation" id="password_confirmation" class="form-control" required="">
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-danger">Update</button>
