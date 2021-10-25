@@ -30,23 +30,6 @@
                                 <div class="controls">
                                     <input type="email" name="email" class="form-control" required="" value="{{ $editData->email }}"> </div>
                             </div>
-                            <!--
-                            <div class="form-group">
-                                <h5>Old Password</h5>
-                                <div class="controls">
-                                    <input type="password" name="password" class="form-control" required="" data-validation-required-message="This field is required"> <div class="help-block"></div></div>
-                            </div>
-                            <div class="form-group">
-                                <h5>New Password</h5>
-                                <div class="controls">
-                                    <input type="password" name="password" class="form-control" required="" data-validation-required-message="This field is required"> <div class="help-block"></div></div>
-                            </div>
-                            <div class="form-group">
-                                <h5>Confirm New Password</h5>
-                                <div class="controls">
-                                    <input type="password" name="password" class="form-control" required="" data-validation-required-message="This field is required"> <div class="help-block"></div></div>
-                            </div>
-                        -->
                         <div class="row">
                             <div class="col-md-6">
                             <div class="form-group">
