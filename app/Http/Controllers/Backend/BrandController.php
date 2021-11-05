@@ -20,14 +20,14 @@ class BrandController extends Controller
             'brand_name_pl' => 'required',
             'brand_image' => 'required',
         ],[
-            'brand_name_en.required' => 'Input Brang English Name',
-            'brand_name_pl.required' => 'Input Brang Polish Name',
+            'brand_name_en.required' => 'Input Brand English Name',
+            'brand_name_pl.required' => 'Input Brand Polish Name',
         ]);
 
         $image = $request->file('brand_image');
-        $name_en = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
-        Image::make($image)->resize(300, 300)->save('upload/brand/' . $name_en);
-        $save_url = 'upload/brand/' . $name_en;
+        $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
+        Image::make($image)->resize(300, 300)->save('upload/brand/' . $name_gen);
+        $save_url = 'upload/brand/' . $name_gen;
 
         Brand::insert([
             'brand_name_en' => $request->brand_name_en,
