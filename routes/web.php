@@ -7,6 +7,7 @@ use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\SubCategoryController;
 use App\Http\Controllers\Frontend\IndexController;
+use App\Http\Controllers\Backend\ProductController;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
@@ -85,4 +86,9 @@ Route::prefix('subcategory')->group(function(){
     Route::get('/sub/sub/delete/{id}', [SubCategoryController::class, 'SubSubCategoryDelete'])->name('subsubcategory.delete');
 });
 
+//Admin Product all routes
 
+Route::prefix('product')->group(function(){
+    Route::get('/add', [ProductController::class, 'AddProduct'])->name('add-product');
+
+});
