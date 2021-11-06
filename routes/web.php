@@ -64,7 +64,7 @@ Route::prefix('category')->group(function(){
     Route::get('/edit/{id}', [CategoryController::class, 'CategoryEdit'])->name('category.edit');
     Route::post('/update', [CategoryController::class, 'CategoryUpdate'])->name('category.update');
     Route::get('delete/{id}', [CategoryController::class, 'CategoryDelete'])->name('category.delete');
-
+    Route::get('/subcategory/ajax/{category_id}', [SubCategoryController::class, 'GetSubCategory']); // sub-subcateogory js script to choose subcategory in the relationship with category
 });
 
 //Admin Sub Category all routes
@@ -79,9 +79,10 @@ Route::prefix('subcategory')->group(function(){
 // Admin Sub->Sub Category All Routes
 
     Route::get('/sub/sub/view', [SubCategoryController::class, 'SubSubCategoryView'])->name('all.subsubcategory');
-    Route::get('/subcategory/ajax/{category_id}', [SubCategoryController::class, 'GetSubCategory']);
     Route::post('/sub/sub/store', [SubCategoryController::class, 'SubSubCategoryStore'])->name('subsubcategory.store');
     Route::get('/sub/sub/edit/{id}', [SubCategoryController::class, 'SubSubCategoryEdit'])->name('subsubcategory.edit');
     Route::post('/sub/update', [SubCategoryController::class, 'SubSubCategoryUpdate'])->name('subsubcategory.update');
     Route::get('/sub/sub/delete/{id}', [SubCategoryController::class, 'SubSubCategoryDelete'])->name('subsubcategory.delete');
 });
+
+

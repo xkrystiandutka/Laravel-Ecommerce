@@ -12,6 +12,8 @@
 		<section class="content">
 		  <div class="row">
 
+
+
 			<div class="col-8">
 
 			 <div class="box">
@@ -74,9 +76,8 @@
 					<div class="table-responsive">
 
 
- <form method="post" action="{{ route('subcategory.store') }}" >
+ <form method="post" action="{{ route('subsubcategory.store') }}" >
 	 	@csrf
-
 
 	 <div class="form-group">
 	<h5>Category Select <span class="text-danger">*</span></h5>
@@ -120,7 +121,7 @@
 
 
 	<div class="form-group">
-		<h5>Sub-SubCategory Polish  <span class="text-danger">*</span></h5>
+		<h5>Sub-SubCategory Polish <span class="text-danger">*</span></h5>
 		<div class="controls">
 	 <input type="text" name="subsubcategory_name_pl" class="form-control" >
      @error('subsubcategory_name_pl')
