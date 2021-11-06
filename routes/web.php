@@ -66,6 +66,7 @@ Route::prefix('category')->group(function(){
     Route::post('/update', [CategoryController::class, 'CategoryUpdate'])->name('category.update');
     Route::get('delete/{id}', [CategoryController::class, 'CategoryDelete'])->name('category.delete');
     Route::get('/subcategory/ajax/{category_id}', [SubCategoryController::class, 'GetSubCategory']); // sub-subcateogory js script to choose subcategory in the relationship with category
+    Route::get('/sub-subcategory/ajax/{subcategory_id}', [SubCategoryController::class, 'GetSubSubCategory']);
 });
 
 //Admin Sub Category all routes
