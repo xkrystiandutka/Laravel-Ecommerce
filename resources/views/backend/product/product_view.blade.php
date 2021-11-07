@@ -42,15 +42,13 @@
 		 <td>{{ $item->product_name_pl }}</td>
 		 <td>{{ $item->product_qty }}</td>
 		<td>
- <a href="{{ route('category.edit',$item->id) }}" class="btn btn-info" title="Edit Data"><i class="fa fa-pencil"></i> </a>
- <a href="{{ route('category.delete',$item->id) }}" class="btn btn-danger" title="Delete Data" id="delete">
+ <a href="{{ route('product.edit',$item->id) }}" class="btn btn-info" title="Edit Data"><i class="fa fa-pencil"></i> </a>
+ <a href="{{ route('product.delete',$item->id) }}" class="btn btn-danger" title="Delete Data" id="delete">
  	<i class="fa fa-trash"></i></a>
 		</td>
-
 	 </tr>
 	  @endforeach
 						</tbody>
-
 					  </table>
 					</div>
 				</div>
@@ -58,13 +56,8 @@
 			  </div>
 			  <!-- /.box -->
 
-
 			</div>
 			<!-- /.col -->
-
-
-
-
 
 		  </div>
 		  <!-- /.row -->

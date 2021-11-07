@@ -93,4 +93,7 @@ Route::prefix('product')->group(function(){
     Route::get('/add', [ProductController::class, 'AddProduct'])->name('add-product');
     Route::post('/store', [ProductController::class, 'StoreProduct'])->name('product-store');
     Route::get('/manage', [ProductController::class, 'ManageProduct'])->name('manage-product');
+    Route::get('/edit/{id}',[ProductController::class, 'EditProduct'])->name('product.edit');
+    Route::post('/data/update', [ProductController::class, 'ProductDataUpdate'])->name('product-update');
+    Route::get('/delete/{id}', [ProductController::class, 'SubSubCategoryDelete'])->name('product.delete');
 });
