@@ -51,8 +51,9 @@
 
             @else
             @php
- 		 	(int)$amount = (int)$item->selling_price - (int)$item->discount_price;
-            (int)$discount =((int)$amount/(int)$item->selling_price) * 100;
+ 		    $amount = ((int)$item->selling_price - (int)$item->discount_price);
+            $discount =((int)$amount/(int)$item->selling_price) * 100;
+
             @endphp
           <span class="badge badge-pill badge-danger">{{ round($discount)  }} %</span>
 
