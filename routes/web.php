@@ -10,6 +10,7 @@ use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Backend\SliderController;
 
 Route::group(['prefix'=> 'admin', 'middleware'=>['admin:admin']], function(){
 	Route::get('/login', [AdminController::class, 'loginForm']);
@@ -101,5 +102,12 @@ Route::prefix('product')->group(function(){
     Route::get('/inactive/{id}', [ProductController::class, 'ProductInactive'])->name('product.inactive');
     Route::get('/active/{id}', [ProductController::class, 'ProductActive'])->name('product.active');
     Route::get('/delete/{id}', [ProductController::class, 'ProductDelete'])->name('product.delete');
+});
+
+//Admin slider all routes
+
+Route::prefix('slider')->group(function(){
+    Route::get('/view', [SliderController::class, 'SliderView'])->name('manage-slider');
+    Route::post('/store', [SliderController::class, 'SliderStore'])->name('slider.store');
 });
 
