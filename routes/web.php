@@ -7,10 +7,12 @@ use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\SubCategoryController;
 use App\Http\Controllers\Frontend\IndexController;
+use App\Http\Controllers\Frontend\LanguageController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Backend\SliderController;
+
 
 Route::group(['prefix'=> 'admin', 'middleware'=>['admin:admin']], function(){
 	Route::get('/login', [AdminController::class, 'loginForm']);
@@ -118,3 +120,9 @@ Route::get('/inactive/{id}', [SliderController::class, 'SliderInactive'])->name(
 Route::get('/active/{id}', [SliderController::class, 'SliderActive'])->name('slider.active');
 
 });
+
+/// Frontend All Routes /////
+/// Multi Language All Routes ////
+
+Route::get('/language/polish', [LanguageController::class, 'Polish'])->name('polish.language');
+Route::get('/language/english', [LanguageController::class, 'English'])->name('english.language');
