@@ -6,4 +6,5 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 -Admin Panel Setup branch Finish.
 -Frontend Template Setup branch Finish.
--Backend-store-product-managment-system branch.
+-Backend-store-product-managment-system branch.s
+-Frontend new branch test
