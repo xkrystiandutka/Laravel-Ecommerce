@@ -43,8 +43,7 @@ class CategoryController extends Controller
         return view('backend.category.category_edit', compact('category'));
     }
 
-    public function CategoryUpdate(Request $request) {
-        $cat_id = $request->id;
+    public function CategoryUpdate(Request $request ,$id){
 
         $request->validate([
             'category_name_en' => 'required',
@@ -55,7 +54,7 @@ class CategoryController extends Controller
             'category_name_pl.required' => 'Input Category Polish Name',
         ]);
 
-        Category::findOrFail($cat_id)->update([
+        Category::findOrFail($id)->update([
                 'category_name_en' => $request->category_name_en,
                 'category_name_pl' => $request->category_name_pl,
                 'category_slug_en' => strtolower(str_replace(' ', '-', $request->category_name_en)),

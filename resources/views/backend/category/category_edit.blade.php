@@ -23,8 +23,7 @@
                     <form  action="{{ route('category.update', $category->id) }}" method="post">
                         @csrf
 
-                            <input type="hidden" name="id" value="{{ $category->id }}">
-                            <div class="form-group">
+                          <div class="form-group">
                                 <h5>Category English <span class="text-danger">*</span></h5>
                                 <div class="controls">
                                     <input type="text" name="category_name_en" class="form-control" value="{{ $category->category_name_en }}">
