@@ -126,3 +126,6 @@ Route::get('/active/{id}', [SliderController::class, 'SliderActive'])->name('sli
 
 Route::get('/language/polish', [LanguageController::class, 'Polish'])->name('polish.language');
 Route::get('/language/english', [LanguageController::class, 'English'])->name('english.language');
+
+// Frontend Product Details Page url 
+Route::get('/product/details/{id}/{slug}', [IndexController::class, 'ProductDetails']); 
