@@ -3,6 +3,7 @@
 
 @section('title')
 Zalando Clone
+
 @endsection
 
 
