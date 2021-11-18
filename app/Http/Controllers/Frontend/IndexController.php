@@ -96,7 +96,7 @@ class IndexController extends Controller
         }
         else {
             $notifaction = array(
-                'message' => 'Something went wrong when changing the password, try again',
+                'message' => 'Sometplg went wrong when changing the password, try again',
                 'alert-type' => 'error'
                 );
             return redirect()->back()->with($notifaction);
@@ -109,5 +109,13 @@ class IndexController extends Controller
 	 	return view('frontend.product.product_details',compact('product','multiImag'));
 
 	}
+
+    public function TagWiseProduct($tag){
+		$products = Product::where('status',1)->where('product_tags_en',$tag)->where('product_tags_pl',$tag)->orderBy('id','DESC')->paginate(3);
+		$categories = Category::orderBy('category_name_en','ASC')->get();
+		return view('frontend.tags.tags_view',compact('products','categories'));
+
+	}
+
 
 }
