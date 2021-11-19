@@ -96,7 +96,7 @@ class IndexController extends Controller
         }
         else {
             $notifaction = array(
-                'message' => 'Sometplg went wrong when changing the password, try again',
+                'message' => 'Something went wrong when changing the password, try again',
                 'alert-type' => 'error'
                 );
             return redirect()->back()->with($notifaction);
@@ -106,7 +106,20 @@ class IndexController extends Controller
     public function ProductDetails($id,$slug){
 		$product = Product::findOrFail($id);
 		$multiImag = MultiImg::where('product_id',$id)->get();
-	 	return view('frontend.product.product_details',compact('product','multiImag'));
+
+        $color_en = $product->product_color_en;
+		$product_color_en = explode(',', $color_en);
+
+		$color_pl = $product->product_color_pl;
+		$product_color_pl = explode(',', $color_pl);
+
+		$size_en = $product->product_size_en;
+		$product_size_en = explode(',', $size_en);
+
+		$size_pl = $product->product_size_p;
+		$product_size_pl = explode(',', $size_pl);
+
+        return view('frontend.product.product_details',compact('product','multiImag','product_color_en','product_color_pl','product_size_en','product_size_pl'));
 
 	}
 
