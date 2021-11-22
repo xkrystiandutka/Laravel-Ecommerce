@@ -66,6 +66,8 @@
 <script src="{{ asset('frontend/assets/js/wow.min.js') }}"></script>
 <script src="{{ asset('frontend/assets/js/scripts.js') }}"></script>
 
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
 <script>
@@ -109,7 +111,7 @@
 
             <div class="card" style="width: 18rem;">
 
-                <img src=" " class="card-img-top" alt="..." style="height: 200px; width: 200px;" id="pimage">
+  <img src=" " class="card-img-top" alt="..." style="height: 200px; width: 200px;" id="pimage">
 
 </div>
 
@@ -137,8 +139,8 @@
         <div class="col-md-4">
 
             <div class="form-group">
-                <label for="color">Choose Color</label>
-                <select class="form-control" id="color" name="color">
+    <label for="color">Choose Color</label>
+    <select class="form-control" id="color" name="color">
 
 
     </select>
@@ -146,20 +148,21 @@
 
 
     <div class="form-group" id="sizeArea">
-        <label for="size">Choose Size</label>
-        <select class="form-control" id="size" name="size">
+    <label for="size">Choose Size</label>
+    <select class="form-control" id="size" name="size">
       <option>1</option>
 
     </select>
   </div>  <!-- // end form group -->
 
        <div class="form-group">
-        <label for="qty">Quantity</label>
-        <input type="number" class="form-control" id="qty" value="1" min="1" >
+    <label for="qty">Quantity</label>
+    <input type="number" class="form-control" id="qty" value="1" min="1" >
   </div> <!-- // end form group -->
 
-  <input type="hidden" id="product_id">
-  <button type="submit" class="btn btn-primary mb-2" onclick="addToCart()" >Add to Cart</button>
+<input type="hidden" id="product_id">
+<button type="submit" class="btn btn-primary mb-2" onclick="addToCart()" >Add to Cart</button>
+
 
         </div><!-- // end col md -->
 
@@ -197,7 +200,6 @@ function productView(id){
             $('#pcategory').text(data.product.category.category_name_en);
             $('#pbrand').text(data.product.brand.brand_name_en);
             $('#pimage').attr('src','/'+data.product.product_thambnail);
-
             $('#product_id').val(id);
             $('#qty').val(1);
             // Product Price
@@ -239,9 +241,10 @@ function productView(id){
     })
 
 }
-// Eend Product View with Modal
+// End Product View with Modal
+
  // Start Add To Cart Product
- function addToCart(){
+    function addToCart(){
         var product_name = $('#pname').text();
         var id = $('#product_id').val();
         var color = $('#color option:selected').text();
@@ -256,12 +259,33 @@ function productView(id){
             url: "/cart/data/store/"+id,
             success:function(data){
                 $('#closeModel').click();
+                console.log(data)
+                // Start Message
+                const Toast = Swal.mixin({
+                      toast: true,
+                      position: 'top-end',
+                      icon: 'success',
+                      showConfirmButton: false,
+                      timer: 3000
+                    })
+                if ($.isEmptyObject(data.error)) {
+                    Toast.fire({
+                        type: 'success',
+                        title: data.success
+                    })
+                }else{
+                    Toast.fire({
+                        type: 'error',
+                        title: data.error
+                    })
+                }
+                // End Message
             }
         })
     }
+
 // End Add To Cart Product
 </script>
-
 
 </body>
 </html>
